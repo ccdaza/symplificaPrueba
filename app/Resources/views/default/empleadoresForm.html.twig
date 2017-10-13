@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-md-10">
+                <h3>Nuevo Empleador</h3>
+            </div>
+            <div class="col-md-2">
+                <a href="/empleadores"><i class="lm-f-left"></i> Volver</a>
+            </div>
+        </div>
+        
+        <br>
+        
+        <div class="row justify-content-md-center form-group">
+            <div class="col-md-8">
+                
+                <form action="/empleadores/save" method="post">
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control col-md-12" name="nombre" placeholder="Nombre">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12"><input type="text" class="form-control col-md-12"  name="cedula" placeholder="Cedula"></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12"><input type="text" class="form-control col-md-12" name="telefono" placeholder="Telefono"></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12"><input type="text" class="form-control col-md-12"  name="direccion" placeholder="Direccion"></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12"><input type="text" class="form-control col-md-12"  name="fecha" placeholder="Fecha Nacimiento"></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">    
+                            <label for="sexo">Sexo</label><br>
+                            <select name="sexo" id="sexo" class="col-md-12 form-control">
+                                <option value="hombre">Hombre</option>
+                                <option value="mujer">Mujer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit"> Enviar </button>
+                        </div>
+                    </div>
+                    
+                </form>
+                
+            </div>
+        </div>
+        
+    </div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-md-10">
+                <h3>Empleadores</h3>
+            </div>
+            <div class="col-md-2">
+                <a href="/empleadores/nuevo" class="lm-mas"></a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Sexo</th>
+                            <th>Cedula</th>
+                            <th>Telefono</th>
+                            <th>Direccion</th>
+                            <th>Fecha nacimiento</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                       {% for empleador in empleadores %}
+                        <tr>
+                            <td>{{ empleador.nombre }}</td>
+                            <td>{{ empleador.sexo }}</td>
+                            <td>{{ empleador.cedula }}</td>
+                            <td>{{ empleador.telefono }}</td>
+                            <td>{{ empleador.direccion }}</td>
+                            <td>{{ empleador.fechaNacimiento|date("Y-m-d") }}</td>
+                            <td>
+                                <a href="/empleadores/editar/{{ empleador.id }}">editar</a>                                
+                                <a href="/empleadores/delete/{{ empleador.id }}">borrar</a>                                
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+        
+    </div>
+{% endblock %}
+

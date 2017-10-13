@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-md-10">
+                <h3>Nuevo Empleador</h3>
+            </div>
+            <div class="col-md-2">
+                <a href="/empleados"><i class="lm-f-left"></i> Volver</a>
+            </div>
+        </div>
+        
+        <br>
+        
+        <div class="row justify-content-md-center form-group">
+            <div class="col-md-8">
+                
+                <form action="/empleados/edit" method="post">
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control col-md-12" name="nombre" placeholder="Nombre" value='{{ empleado.nombre }}'>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12"><input type="text" class="form-control col-md-12"  name="cedula" placeholder="Cedula" value='{{ empleado.cedula }}'></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12"><input type="text" class="form-control col-md-12" name="telefono" placeholder="Telefono"  value='{{ empleado.telefono }}'></div>
+                    </div>
+                    
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">    
+                            <label for="sexo">Sexo</label><br>
+                            <select name="sexo" id="sexo" class="col-md-12 form-control">
+                                <option value="hombre" {% if(empleado.sexo == 'hombre') %} selected {% endif %}>Hombre</option>
+                                <option value="mujer" {% if(empleado.sexo == 'mujer') %} selected {% endif %}>Mujer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">    
+                            <label for="type">Tipo de contrato</label><br>
+                            <select name="type" id="type" class="col-md-12 form-control">
+                                <option value="Tiempo indefinido" {% if(empleado.tipoContrato == 'Tiempo indefinido') %} selected {% endif %}>Tiempo indefinido</option>
+                                <option value="Tiempo definido" {% if(empleado.tipoContrato == 'Tiempo definido') %} selected {% endif %}>Tiempo definido</option>
+                                <option value="Tiempo parcial" {% if(empleado.tipoContrato == 'Tiempo parcial') %} selected {% endif %}>Tiempo parcial</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                           <input type="hidden" name="id" value='{{ empleado.id }}'>
+                            <button type="submit"> Enviar </button>
+                        </div>
+                    </div>
+                    
+                </form>
+                
+            </div>
+        </div>
+        
+    </div>
+
+{% endblock %}
